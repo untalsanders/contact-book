@@ -102,6 +102,9 @@ importers:
       postcss:
         specifier: 8.5.6
         version: 8.5.6
+      postcss-loader:
+        specifier: 8.2.0
+        version: 8.2.0(postcss@8.5.6)(typescript@5.8.2)(webpack@5.97.1)
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -3162,6 +3165,19 @@ packages:
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
+
+  postcss-loader@8.2.0:
+    resolution: {integrity: sha512-tHX+RkpsXVcc7st4dSdDGliI+r4aAQDuv+v3vFYHixb6YgjreG5AG4SEB0kDK8u2s6htqEEpKlkhSBUTvWKYnA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      '@rspack/core': 0.x || 1.x
+      postcss: ^7.0.0 || ^8.0.1
+      webpack: ^5.0.0
+    peerDependenciesMeta:
+      '@rspack/core':
+        optional: true
+      webpack:
+        optional: true
 
   postcss-modules-extract-imports@3.1.0:
     resolution: {integrity: sha512-k3kNe0aNFQDAZGbin48pL2VNidTF0w4/eASDsxlyspobzU3wZQLOGj7L9gfRe0Jo9/4uud09DsjFNH7winGv8Q==}
@@ -7447,6 +7463,17 @@ snapshots:
       find-up: 4.1.0
 
   possible-typed-array-names@1.1.0: {}
+
+  postcss-loader@8.2.0(postcss@8.5.6)(typescript@5.8.2)(webpack@5.97.1):
+    dependencies:
+      cosmiconfig: 9.0.0(typescript@5.8.2)
+      jiti: 2.6.1
+      postcss: 8.5.6
+      semver: 7.7.1
+    optionalDependencies:
+      webpack: 5.97.1(webpack-cli@6.0.1)
+    transitivePeerDependencies:
+      - typescript
 
   postcss-modules-extract-imports@3.1.0(postcss@8.5.6):
     dependencies:

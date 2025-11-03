@@ -15,7 +15,8 @@ export default function Favorite({ contact }) {
       <button
         name="favorite"
         value={favorite ? 'false' : 'true'}
-        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}>
+        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
+        className="shadow-none text-3xl font-normal p-0 border-none bg-transparent leading-relaxed">
         {favorite ? '★' : '☆'}
       </button>
     </fetcher.Form>
