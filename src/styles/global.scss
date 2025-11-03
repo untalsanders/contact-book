@@ -1,6 +1,10 @@
+@import 'tailwindcss';
+
+/* Global styles that can't be easily replaced with Tailwind */
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
