@@ -12,7 +12,7 @@ export default {
   entry: './index.tsx',
   devtool: 'inline-source-map',
   devServer: {
-    port: 3000,
+    port: 8000,
     static: [join(basePath, 'src', 'assets'), join(basePath, 'public')],
     compress: true,
     historyApiFallback: true,
@@ -63,15 +63,10 @@ export default {
     new CopyPlugin({
       patterns: [
         {
-          from: 'favicon.svg',
-          to: join(basePath, 'dist'),
-          context: resolve(basePath, 'public'),
-        },
-        {
           from: '**/*.{png,jpg,jpeg,webm,svg}',
           to: join(basePath, 'dist'),
           toType: 'file',
-          context: resolve(basePath, 'src/assets/img'),
+          context: resolve(basePath, 'src/assets/images'),
           noErrorOnMissing: true,
         },
       ],
