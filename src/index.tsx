@@ -11,46 +11,46 @@ import ErrorPage from './error-page'
 import Index from './home'
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    loader: rootLoader,
+    action: rootAction,
+    children: [
+      {
         errorElement: <ErrorPage />,
-        loader: rootLoader,
-        action: rootAction,
         children: [
-            {
-                errorElement: <ErrorPage />,
-                children: [
-                    {
-                        index: true,
-                        element: <Index />,
-                    },
-                    {
-                        path: 'contacts/:id',
-                        element: <Contact />,
-                        loader: contactLoader,
-                        action: contactAction,
-                    },
-                    {
-                        path: 'contacts/:id/edit',
-                        element: <EditContact />,
-                        loader: contactLoader,
-                        action: editAction,
-                    },
-                    {
-                        path: 'contacts/:id/destroy',
-                        action: deleteAction,
-                    },
-                ],
-            },
+          {
+            index: true,
+            element: <Index />,
+          },
+          {
+            path: 'contacts/:id',
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          {
+            path: 'contacts/:id/edit',
+            element: <EditContact />,
+            loader: contactLoader,
+            action: editAction,
+          },
+          {
+            path: 'contacts/:id/destroy',
+            action: deleteAction,
+          },
         ],
-    },
+      },
+    ],
+  },
 ])
 
 const el = document.getElementById('root') as Container
 const root = createRoot(el)
 root.render(
-    <StrictMode>
-        <RouterProvider router={router} />
-    </StrictMode>
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
 )
