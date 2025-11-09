@@ -1,6 +1,6 @@
 'use strict'
 
-import { useFetcher } from 'react-router-dom'
+import { useFetcher } from 'react-router'
 
 export default function Favorite({ contact }) {
   const fetcher = useFetcher()

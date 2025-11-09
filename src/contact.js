@@ -1,6 +1,6 @@
 'use strict'
 
-import { Form, useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router'
 import Favorite from './favorite'
 import { getContact, updateContact } from '../data/contacts'
 
@@ -40,7 +40,7 @@ export default function Contact() {
           {contact.twitter && (
             <p>
               <a
-                href={`https://twitter.com/${contact.twitter}`}
+                href={`https://x.com/${contact.twitter}`}
                 target="_blank"
                 rel="noreferrer"
                 className="text-2xl text-blue-500 hover:underline">

@@ -1,6 +1,6 @@
 'use strict'
 
-import { redirect } from 'react-router-dom'
+import { redirect } from 'react-router'
 import { deleteContact } from '../data/contacts'
 
 export const action = async ({ params }) => {

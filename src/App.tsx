@@ -1,15 +1,16 @@
 'use strict'
 
 import '@/styles/global.scss'
-import { Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from 'react-router-dom'
-import { createContact, getContacts } from '../data/contacts'
 import React, { Key, useEffect } from 'react'
+import { Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit } from 'react-router'
+import { createContact, getContacts } from '../data/contacts'
 
 export const loader = async ({ request }: { request: Request }) => {
   const url = new URL(request.url)
   const q = url.searchParams.get('q')
   return { contacts: await getContacts(q), q }
 }
+
 export const action = async () => {
   const contact = await createContact()
   return redirect(`/contacts/${contact.id}/edit`)
