@@ -1,5 +1,7 @@
 'use strict'
 
+import React from 'react'
+
 export default function Home() {
   return (
     <p id="zero-state" className="m-8 text-center text-gray-500">
