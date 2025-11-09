@@ -1,9 +1,9 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router'
 import App, { action as rootAction, loader as rootLoader } from './App'
-import Contact, { action as contactAction, loader as contactLoader } from './contact'
-import { action as deleteAction } from './destroy'
-import EditContact, { action as editAction } from './edit'
+import Contact, { action as contactAction, loader as getContactLoader } from './contact'
+import { action as deleteContactAction } from './destroy'
+import EditContact, { action as editContactAction } from './edit'
 import ErrorPage from './error-page'
 import Home from './home'
 
@@ -25,18 +25,18 @@ export const router = createBrowserRouter([
           {
             path: 'contacts/:id',
             element: <Contact />,
-            loader: contactLoader,
+            loader: getContactLoader,
             action: contactAction,
           },
           {
             path: 'contacts/:id/edit',
             element: <EditContact />,
-            loader: contactLoader,
-            action: editAction,
+            loader: getContactLoader,
+            action: editContactAction,
           },
           {
             path: 'contacts/:id/destroy',
-            action: deleteAction,
+            action: deleteContactAction,
           },
         ],
       },
