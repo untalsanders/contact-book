@@ -2,8 +2,9 @@
 
 import '@/styles/global.scss'
 import React from 'react'
-import { Outlet, redirect, useNavigation } from 'react-router'
+import { Outlet, redirect } from 'react-router'
 import { createContact, getContacts } from '../data/contacts'
+import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 
 export const loader = async ({ request }: { request: Request }) => {
@@ -18,17 +19,13 @@ export const action = async () => {
 }
 
 export default function App() {
-  const navigation = useNavigation()
-
   return (
     <>
-      <Sidebar />
-      <div
-        className={`flex-1 p-8 ${
-          navigation.state === 'loading' ? 'opacity-25 transition-opacity duration-200 delay-200' : ''
-        }`}>
+      <Header />
+      <main className="grid grid-cols-2">
+        <Sidebar />
         <Outlet />
-      </div>
+      </main>
     </>
   )
 }

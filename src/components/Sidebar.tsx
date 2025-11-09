@@ -11,15 +11,11 @@ export default function Sidebar() {
 
   useEffect(() => {
     // @ts-ignore
-    document.querySelector("#q").value = q
+    document.querySelector('#q').value = q
   }, [q])
 
   return (
     <div className="w-min max-w-[30vw] bg-gray-100 border-r border-gray-300 flex flex-col">
-      <h1 className="text-base font-medium flex items-center p-4 order-1 leading-none">
-        <img src="/logo.svg" alt="logo" className="w-6 h-6 mr-2 relative top-1" />
-        Contacts
-      </h1>
       <div className="flex items-center gap-4 p-4 border-b border-gray-300">
         <Form id="search-form" role="search">
           <input
