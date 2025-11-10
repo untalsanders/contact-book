@@ -1,8 +1,10 @@
 'use strict'
 
-import { useFetcher } from 'react-router-dom'
+import React from 'react'
+import { useFetcher } from 'react-router'
+import { Contact } from './Contact'
 
-export default function Favorite({ contact }) {
+export default function Favorite({ contact }: { contact: Contact }) {
   const fetcher = useFetcher()
 
   let { favorite } = contact
@@ -15,7 +17,8 @@ export default function Favorite({ contact }) {
       <button
         name="favorite"
         value={favorite ? 'false' : 'true'}
-        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}>
+        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
+        className="shadow-none text-3xl font-normal p-0 border-none bg-transparent leading-relaxed">
         {favorite ? '★' : '☆'}
       </button>
     </fetcher.Form>

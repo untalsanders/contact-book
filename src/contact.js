@@ -1,6 +1,6 @@
 'use strict'
 
-import { Form, useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router'
 import Favorite from './favorite'
 import { getContact, updateContact } from '../data/contacts'
 
@@ -18,33 +18,46 @@ export default function Contact() {
 
   return (
     <>
-      <div className="contact">
-        <img key={contact.avatar} src={contact.avatar || null} alt="image" />
+      <div className="flex flex-row gap-8 max-w-min">
+        <img
+          key={contact.avatar}
+          src={contact.avatar || null}
+          alt="image"
+          className="w-48 h-48 bg-gray-200 rounded-3xl object-cover"
+        />
         <div>
-          <h1>
+          <h1 className="text-4xl font-bold leading-tight flex items-start gap-4">
             {contact.first || contact.last ? (
               <>
                 {contact.first} {contact.last}
               </>
             ) : (
-              <i>No name</i>
+              <i className="text-gray-500">No name</i>
             )}{' '}
             <Favorite contact={contact} />
           </h1>
 
           {contact.twitter && (
             <p>
-              <a href={`https://twitter.com/${contact.twitter}`} target="_blank" rel="noreferrer">
+              <a
+                href={`https://x.com/${contact.twitter}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-2xl text-blue-500 hover:underline">
                 {contact.twitter}
               </a>
             </p>
           )}
 
-          {contact.notes && <p>{contact.notes}</p>}
+          {contact.notes && <p className="whitespace-break-spaces">{contact.notes}</p>}
 
-          <div>
+          <div className="flex gap-2 mt-4">
             <Form action="edit">
-              <button type="submit">Edit</button>
+              <button
+                type="submit"
+                className="text-blue-500 font-medium border-none rounded-lg p-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed active:shadow-sm transform active:translate-y-0.5">
+                Edit
+              </button>
             </Form>
             <Form
               action="destroy"
@@ -54,7 +67,11 @@ export default function Contact() {
                   event.preventDefault()
                 }
               }}>
-              <button type="submit">Delete</button>
+              <button
+                type="submit"
+                className="text-red-500 font-medium border-none rounded-lg p-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed active:shadow-sm transform active:translate-y-0.5">
+                Delete
+              </button>
             </Form>
           </div>
         </div>
