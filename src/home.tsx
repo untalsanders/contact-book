@@ -7,10 +7,9 @@ export default function Home() {
   const { contacts, q } = useLoaderData()
 
   return (
-    <div className='grid grid-rows-[min-content_1fr] p-4'>
+    <div className="grid grid-rows-[min-content_1fr] p-4">
       <h2 className="text-gray-500 text-[1.5rem] flex items-center gap-2">
-        Contacts {" "}
-        <span className='text-[1rem]'>({contacts.length})</span>
+        Contacts <span className="text-[1rem]">({contacts.length})</span>
       </h2>
       {contacts.length ? (
         <ul className="p-0 m-0 list-none">
@@ -40,10 +39,10 @@ export default function Home() {
           ))}
         </ul>
       ) : (
-        <div className='h-full flex flex-col items-center justify-content gap-5'>
-          <img src="/emptycontacts_animation_cell4.png" alt="empty contacts" width={220} height={220} />
+        <div className="h-full flex flex-col items-center justify-content gap-5">
+          <img src="/images/emptycontacts_animation_cell4.png" alt="empty contacts" width={220} height={220} />
           <p>No contacts yet</p>
-          <nav className='flex items-center gap-2'>
+          <nav className="flex items-center gap-2">
             <NavLink to="" className="text-[blue] font-medium px-4 py-2 hover:bg-[#eee] hover:rounded-full">
               Create contact
             </NavLink>

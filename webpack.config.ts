@@ -63,11 +63,9 @@ export default {
     new CopyPlugin({
       patterns: [
         {
-          from: '**/*.{png,jpg,jpeg,webm,svg}',
-          to: join(basePath, 'dist'),
-          toType: 'file',
-          context: resolve(basePath, 'src/assets/images'),
-          noErrorOnMissing: true,
+          from: 'assets/images',
+          to: 'images/',
+          toType: 'dir',
         },
       ],
     }),
