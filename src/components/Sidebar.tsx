@@ -60,7 +60,7 @@ export default function Sidebar() {
           </button>
         </Form>
       </div>
-      <nav className="flex flex-col gap-4 p-4">
+      <nav className="flex flex-col gap-4 p-4 select-none">
         <NavLink to="/">Contacts</NavLink>
         <NavLink to="/">Trash</NavLink>
       </nav>
