@@ -22,7 +22,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-2">
+      <main className="grid grid-cols-[min-content_1fr]">
         <Sidebar />
         <Outlet />
       </main>

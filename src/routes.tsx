@@ -21,6 +21,8 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <Home />,
+            loader: rootLoader,
+            action: rootAction,
           },
           {
             path: 'contacts/:id',

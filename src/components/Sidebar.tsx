@@ -4,7 +4,7 @@ import React, { Key, useEffect } from 'react'
 import { Form, NavLink, useLoaderData, useNavigation, useSubmit } from 'react-router'
 
 export default function Sidebar() {
-  const { contacts, q } = useLoaderData()
+  const { q } = useLoaderData()
   const navigation = useNavigation()
   const submit = useSubmit()
   const searching = navigation.location && new URLSearchParams(navigation.location.search).has('q')
@@ -15,12 +15,12 @@ export default function Sidebar() {
   }, [q])
 
   return (
-    <div className="w-min max-w-[30vw] bg-gray-100 border-r border-gray-300 flex flex-col">
+    <div className="max-w-[30vw] bg-gray-100 border-r border-gray-300 flex flex-col">
       <div className="flex items-center gap-4 p-4 border-b border-gray-300">
         <Form id="search-form" role="search">
           <input
             id="q"
-            className={`pl-8 bg-white border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 relative ${
+            className={`bg-white border border-gray-300 rounded-lg px-8 py-2 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 relative ${
               searching ? 'loading' : ''
             }`}
             style={{
@@ -60,39 +60,9 @@ export default function Sidebar() {
           </button>
         </Form>
       </div>
-      <nav className="flex-1 overflow-auto p-4">
-        {contacts.length ? (
-          <ul className="p-0 m-0 list-none">
-            {contacts.map((contact: { id: Key; first: any; last: any; favorite: any }) => (
-              <li key={contact.id} className="my-1">
-                <NavLink
-                  to={`contacts/${contact.id}`}
-                  className={({ isActive, isPending }) =>
-                    `flex items-center justify-between overflow-hidden whitespace-pre p-2 rounded-lg text-inherit no-underline gap-4 ${
-                      isActive
-                        ? 'bg-blue-600 text-white'
-                        : isPending
-                        ? 'text-blue-600'
-                        : 'hover:bg-gray-300 hover:text-blue-600'
-                    }`
-                  }>
-                  {contact.first || contact.last ? (
-                    <>
-                      {contact.first} {contact.last}
-                    </>
-                  ) : (
-                    <i className="text-gray-500">No name</i>
-                  )}{' '}
-                  {contact.favorite && <span>★</span>}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>
-            <i className="text-gray-500">No contacts</i>
-          </p>
-        )}
+      <nav className="flex flex-col gap-4 p-4">
+        <NavLink to="/">Contacts</NavLink>
+        <NavLink to="/">Trash</NavLink>
       </nav>
     </div>
   )
