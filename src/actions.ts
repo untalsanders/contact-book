@@ -5,7 +5,7 @@ import ContactService from './services/contactService'
 
 const contactService = new ContactService()
 
-export const editContactAction = async ({ params, request }: ActionFunctionArgs) => {
+export const editContactAction = async ({ request, params }: ActionFunctionArgs) => {
   const formData = await request.formData()
   const updates = Object.fromEntries(formData)
   await contactService.updateContact(params.id!, updates as any)

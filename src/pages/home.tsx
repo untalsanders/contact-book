@@ -13,7 +13,7 @@ export default function HomePage() {
       <h2 className="text-gray-500 text-[1.5rem] flex items-center gap-2">
         Contacts <span className="text-[1rem]">({contacts.length})</span>
       </h2>
-      {contacts.length ? <ContactList contacts={contacts} /> : <ContactListEmpty />}
+      <section className="py-4">{contacts.length ? <ContactList contacts={contacts} /> : <ContactListEmpty />}</section>
     </div>
   )
 }
