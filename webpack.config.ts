@@ -13,7 +13,7 @@ export default {
   devtool: 'inline-source-map',
   devServer: {
     port: 5566,
-    static: [join(basePath, 'src', 'assets'), join(basePath, 'public')],
+    static: [join(basePath, 'src', 'assets')],
     compress: true,
     historyApiFallback: true,
   },
@@ -62,6 +62,11 @@ export default {
     }),
     new CopyPlugin({
       patterns: [
+        {
+          from: 'favicon.ico',
+          to: 'favicon.ico',
+          toType: 'file',
+        },
         {
           from: 'assets/images',
           to: 'images/',
