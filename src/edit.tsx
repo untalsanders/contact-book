@@ -1,15 +1,7 @@
 'use strict'
 
 import React from 'react'
-import { Form, redirect, useLoaderData, useNavigate, ActionFunctionArgs } from 'react-router'
-import { updateContact } from '../data/contacts'
-
-export const action = async ({ request, params }: ActionFunctionArgs) => {
-  const formData = await request.formData()
-  const updates = Object.fromEntries(formData)
-  await updateContact(params.id, updates)
-  return redirect(`/contacts/${params.id}`)
-}
+import { Form, useLoaderData, useNavigate } from 'react-router'
 
 export default function EditContact() {
   const { contact } = useLoaderData()
@@ -27,16 +19,16 @@ export default function EditContact() {
           type="text"
           placeholder="First"
           aria-label="First name"
-          name="first"
-          defaultValue={contact.first}
+          name="firstname"
+          defaultValue={contact.firstname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
         <input
           type="text"
           placeholder="Last"
           aria-label="Last name"
-          name="last"
-          defaultValue={contact.last}
+          name="lastname"
+          defaultValue={contact.lastname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
       </p>

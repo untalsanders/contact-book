@@ -1,35 +1,20 @@
-'use strict'
-
+import React from 'react'
 import { Form, useLoaderData } from 'react-router'
-import Favorite from './components/Favorite'
-import { getContact, updateContact } from '../data/contacts'
+import { Contact } from '../../types/contact.types'
+import Favorite from '../Favorite'
 
-export const loader = async ({ params }) => ({ contact: await getContact(params.id) })
-
-export const action = async ({ request, params }) => {
-  let formData = await request.formData()
-  return updateContact(params.id, {
-    favorite: formData.get('favorite') === 'true',
-  })
-}
-
-export default function Contact() {
-  const { contact } = useLoaderData()
+export default function ContactCard() {
+  const { contact } = useLoaderData() as { contact: Contact }
 
   return (
     <>
       <div className="flex flex-row gap-8 max-w-min">
-        <img
-          key={contact.avatar}
-          src={contact.avatar || null}
-          alt="image"
-          className="w-48 h-48 bg-gray-200 rounded-3xl object-cover"
-        />
+        <img src="/images/avatar.jpeg" alt="avatar" className="w-48 h-48 bg-gray-200 rounded-3xl object-cover" />
         <div>
           <h1 className="text-4xl font-bold leading-tight flex items-start gap-4">
-            {contact.first || contact.last ? (
+            {contact.firstname || contact.lastname ? (
               <>
-                {contact.first} {contact.last}
+                {contact.firstname} {contact.lastname}
               </>
             ) : (
               <i className="text-gray-500">No name</i>

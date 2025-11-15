@@ -1,7 +1,8 @@
 'use strict'
 
-import React, { Key, useEffect } from 'react'
-import { Form, NavLink, useLoaderData, useNavigation, useSubmit } from 'react-router'
+import React, { useEffect } from 'react'
+import { Form, useLoaderData, useNavigation, useSubmit } from 'react-router'
+import Navbar from './Navbar'
 
 export default function Sidebar() {
   const { q } = useLoaderData()
@@ -15,7 +16,7 @@ export default function Sidebar() {
   }, [q])
 
   return (
-    <div className="max-w-[30vw] bg-gray-100 border-r border-gray-300 flex flex-col">
+    <div className="col-start-1 col-end-2 max-w-[30vw] bg-gray-100 border-r border-gray-300 flex flex-col">
       <div className="flex items-center gap-4 p-4 border-b border-gray-300">
         <Form id="search-form" role="search">
           <input
@@ -60,10 +61,7 @@ export default function Sidebar() {
           </button>
         </Form>
       </div>
-      <nav className="flex flex-col gap-4 p-4 select-none">
-        <NavLink to="/">Contacts</NavLink>
-        <NavLink to="/">Trash</NavLink>
-      </nav>
+      <Navbar />
     </div>
   )
 }

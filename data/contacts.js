@@ -3,25 +3,19 @@
 import localforage from 'localforage'
 import { matchSorter } from 'match-sorter'
 import sortBy from 'sort-by'
-
-let fakeCache = {}
-
-const fakeNetwork = async key => {
-  if (!key) {
-    fakeCache = {}
-  }
-
-  if (fakeCache[key]) {
-    return
-  }
-
-  fakeCache[key] = true
-  return new Promise(res => {
-    setTimeout(res, Math.random() * 800)
-  })
-}
+import { fakeNetwork } from '../src/lib/utils'
 
 const set = contacts => localforage.setItem('contacts', contacts)
+
+export const createContact = async () => {
+  await fakeNetwork()
+  let id = Math.random().toString(36).substring(2, 9)
+  let contact = { id, createdAt: Date.now(), favorite: false }
+  let contacts = await getContacts()
+  contacts.unshift(contact)
+  await set(contacts)
+  return contact
+}
 
 export const getContacts = async query => {
   await fakeNetwork(`getContacts:${query}`)
@@ -31,16 +25,6 @@ export const getContacts = async query => {
     contacts = matchSorter(contacts, query, { keys: ['first', 'last'] })
   }
   return contacts.sort(sortBy('last', 'createdAt'))
-}
-
-export const createContact = async () => {
-  await fakeNetwork()
-  let id = Math.random().toString(36).substring(2, 9)
-  let contact = { id, createAt: Date.now() }
-  let contacts = await getContacts()
-  contacts.unshift(contact)
-  await set(contacts)
-  return contact
 }
 
 export const getContact = async id => {

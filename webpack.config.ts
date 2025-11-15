@@ -9,10 +9,10 @@ const basePath = import.meta.dirname
 export default {
   mode: process.env.NODE_ENV || 'production',
   context: resolve(basePath, 'src'),
-  entry: './index.tsx',
+  entry: './main.tsx',
   devtool: 'inline-source-map',
   devServer: {
-    port: 8000,
+    port: 5566,
     static: [join(basePath, 'src', 'assets'), join(basePath, 'public')],
     compress: true,
     historyApiFallback: true,
@@ -57,7 +57,7 @@ export default {
       meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       scriptLoading: 'defer',
       title: 'Contacts',
-      template: join(basePath, 'public/index.html'),
+      template: join(basePath, 'src/index.html'),
       hash: true,
     }),
     new CopyPlugin({

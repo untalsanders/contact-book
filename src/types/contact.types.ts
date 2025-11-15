@@ -1,7 +1,7 @@
-export interface Contact {
+export type Contact = {
   id: string
-  first?: string
-  last?: string
+  firstname?: string
+  lastname?: string
   avatar?: string | null
   twitter?: string
   notes?: string
