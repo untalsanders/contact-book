@@ -1,5 +1,5 @@
-import { Contact } from '../Contact'
 import { findById } from '../lib/db'
+import { Contact } from '../types/contact.types'
 import CreateContactUseCase from '../usecases/CreateContactUseCase'
 import RemoveContactUseCase from '../usecases/RemoveContactUseCase'
 import RetrieveContactUseCase from '../usecases/RetrieveContactUseCase'
