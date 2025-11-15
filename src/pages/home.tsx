@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { useLoaderData } from 'react-router'
-import ContactList from './components/contacts/ContactList'
-import ContactListEmpty from './components/contacts/ContactListEmpty'
+import ContactList from '../components/contacts/ContactList'
+import ContactListEmpty from '../components/contacts/ContactListEmpty'
 
-export default function Home() {
+export default function HomePage() {
   const { contacts } = useLoaderData()
 
   return (
