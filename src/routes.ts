@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router'
 import About from './about'
 import { destroyContactAction, editContactAction } from './actions'
-import App from './app'
 import ContactCard from './components/contacts/ContactCard'
+import Root from './components/layout/Root'
 import EditContact from './edit'
 import Home from './home'
 import { contactListLoader, contactLoader } from './loaders'
@@ -11,7 +11,7 @@ import Trash from './trash'
 export const router = createBrowserRouter([
   {
     path: '/',
-    Component: App,
+    Component: Root,
     children: [
       { index: true, Component: Home, loader: contactListLoader },
       {
