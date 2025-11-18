@@ -1,6 +1,5 @@
 'use strict'
 
-import React from 'react'
 import { useFetcher } from 'react-router'
 import { Contact } from '../../types/contact.types'
 

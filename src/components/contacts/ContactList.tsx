@@ -1,6 +1,5 @@
 'use strict'
 
-import React from 'react'
 import { Contact } from '../../types/contact.types'
 import ContactRow from './ContactRow'
 

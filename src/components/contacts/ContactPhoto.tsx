@@ -1,4 +1,3 @@
-import React from 'react'
 import { Contact } from '../../types/contact.types'
 
 export default function ContactPhoto({ contact }: { contact: Contact }) {

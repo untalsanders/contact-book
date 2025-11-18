@@ -1,6 +1,5 @@
 'use strict'
 
-import React from 'react'
 import { useLoaderData } from 'react-router'
 import ContactList from '../components/contacts/ContactList'
 import ContactListEmpty from '../components/contacts/ContactListEmpty'

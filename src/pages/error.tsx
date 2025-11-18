@@ -1,6 +1,5 @@
 'use strict'
 
-import React from 'react'
 import { useRouteError } from 'react-router'
 
 export default function ErrorPage() {

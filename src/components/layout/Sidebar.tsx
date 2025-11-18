@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Form, useLoaderData, useNavigation, useSubmit } from 'react-router'
 import Navbar from './Navbar'
 

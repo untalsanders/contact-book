@@ -1,6 +1,5 @@
 'use strict'
 
-import React from 'react'
 import { Form, useNavigate } from 'react-router'
 
 export default function ContactForm() {

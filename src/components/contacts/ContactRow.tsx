@@ -1,4 +1,3 @@
-import React from 'react'
 import { Form, NavLink } from 'react-router'
 import { Contact } from '../../types/contact.types'
 import ContactPhoto from './ContactPhoto'

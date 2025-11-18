@@ -1,7 +1,7 @@
 'use strict'
 
 import '@/styles/globals.scss'
-import React, { StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { Container, createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router/dom'
 import { router } from './routes'
