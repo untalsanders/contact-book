@@ -9,7 +9,11 @@ export default function ContactCard() {
   return (
     <>
       <div className="flex flex-row gap-8 max-w-min">
-        <img src="/images/avatar.jpeg" alt="avatar" className="w-48 h-48 bg-gray-200 rounded-3xl object-cover" />
+        <img
+          src={contact.avatar ?? '/images/default-avatar.jpeg'}
+          alt="avatar"
+          className="w-48 h-48 bg-gray-200 rounded-3xl object-cover"
+        />
         <div>
           <h1 className="text-4xl font-bold leading-tight flex items-start gap-4">
             {contact.firstname || contact.lastname ? (

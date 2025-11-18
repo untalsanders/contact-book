@@ -31,7 +31,7 @@ export default function ContactList({ contacts }: { contacts: Contact[] }) {
               <td className="p-2 whitespace-nowrap border border-gray-300">
                 <div className="flex items-center">
                   <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-                    <ContactPhoto url="/images/avatar.jpeg" alt="" />
+                    <ContactPhoto contact={contact} />
                   </div>
                   <div className="font-medium text-gray-800">
                     {contact.firstname} {contact.lastname}
@@ -64,7 +64,7 @@ export default function ContactList({ contacts }: { contacts: Contact[] }) {
                     <button
                       type="submit"
                       className="cursor-pointer border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2">
-                      Delete
+                      Eliminar
                     </button>
                   </Form>
                 </div>

@@ -3,7 +3,7 @@ export type Contact = {
   firstname?: string
   lastname?: string
   phone?: string
-  avatar?: string | null
+  avatar?: string | undefined
   twitter?: string
   notes?: string
   favorite: boolean
