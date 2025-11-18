@@ -26,7 +26,7 @@ export default function ContactList({ contacts }: { contacts: Contact[] }) {
         </thead>
         <tbody className="text-sm divide-y divide-gray-100">
           {contacts.map(contact => (
-            <ContactRow contact={contact} />
+            <ContactRow contact={contact} key={contact.id} />
           ))}
         </tbody>
       </table>
