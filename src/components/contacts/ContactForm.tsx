@@ -53,7 +53,7 @@ export default function ContactForm() {
         />
       </label>
       <label htmlFor="notes" className="flex">
-        <span className="w-32">Notes</span>
+        <span className="w-32">Notas</span>
         <textarea
           name="notes"
           // defaultValue={contact.notes}

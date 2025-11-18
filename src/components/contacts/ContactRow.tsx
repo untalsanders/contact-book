@@ -24,12 +24,12 @@ export default function ContactRow({ contact }: { contact: Contact }) {
           <NavLink
             to={`/contacts/${contact.id}`}
             className="cursor-pointer border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2">
-            Ver
+            View
           </NavLink>
           <NavLink
             to={`/contacts/${contact.id}/edit`}
             className="cursor-pointer border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2">
-            Editar
+            Edit
           </NavLink>
           <Form
             action={`/contacts/${contact.id}/destroy`}
@@ -42,7 +42,7 @@ export default function ContactRow({ contact }: { contact: Contact }) {
             <button
               type="submit"
               className="cursor-pointer border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2">
-              Eliminar
+              Delete
             </button>
           </Form>
         </div>
