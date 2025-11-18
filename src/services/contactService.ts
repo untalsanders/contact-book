@@ -12,7 +12,7 @@ export default class ContactService
 
   async getContacts(query?: string): Promise<Contact[]> {
     try {
-      const response = await fetch(`${this.apiUrl}/contacts`)
+      const response = await fetch(`${this.apiUrl}/contacts?${query}`)
 
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`)
