@@ -24,18 +24,19 @@ export const router = createBrowserRouter([
           },
           {
             path: ':id',
-            Component: ContactCard,
-            loader: contactLoader,
-          },
-          {
-            path: ':id/edit',
-            Component: EditContact,
-            loader: contactLoader,
-            action: editContactAction,
-          },
-          {
-            path: ':id/destroy',
-            action: destroyContactAction,
+            children: [
+              { index: true, Component: ContactCard, loader: contactLoader },
+              {
+                path: 'edit',
+                Component: EditContact,
+                loader: contactLoader,
+                action: editContactAction,
+              },
+              {
+                path: 'destroy',
+                action: destroyContactAction,
+              },
+            ],
           },
         ],
       },
