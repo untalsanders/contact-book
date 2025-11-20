@@ -40,8 +40,9 @@
     "@tailwindcss/postcss": "4.1.16",
     "@tsconfig/recommended": "1.0.8",
     "@types/node": "22.13.14",
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "19.2.6",
+    "@types/react-dom": "19.2.3",
+    "@types/sort-by": "1.2.3",
     "@types/webpack": "5.28.5",
     "autoprefixer": "10.4.21",
     "babel-loader": "9.1.2",
@@ -75,5 +76,5 @@
     "node": ">=20",
     "npm": ">=10"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@10.22.0"
 }

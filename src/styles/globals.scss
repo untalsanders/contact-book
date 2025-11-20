@@ -22,6 +22,7 @@ html,
 body {
   height: 100%;
   line-height: 1.5;
+  background-color: #f8fafd;
   color: #121212;
 }
 
@@ -35,6 +36,7 @@ a {
   max-height: 100dvh;
   display: grid;
   grid-template-rows: min-content 1fr;
+  grid-template-columns: min(15rem, 100%) 1fr;
 }
 
 /* Icon for sidebar h1 */
