@@ -1,8 +1,9 @@
 'use strict'
 
-import { Form, useNavigate } from 'react-router'
+import { Form, useLoaderData, useNavigate } from 'react-router'
 
 export default function ContactForm() {
+  const { contact } = useLoaderData()
   const navigate = useNavigate()
 
   const cancelHandleClick = () => {
@@ -18,7 +19,7 @@ export default function ContactForm() {
           placeholder="First"
           aria-label="First name"
           name="firstname"
-          // defaultValue={contact.firstname}
+          defaultValue={contact.firstname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
       </label>
@@ -29,7 +30,7 @@ export default function ContactForm() {
           placeholder="Last"
           aria-label="Last name"
           name="lastname"
-          // defaultValue={contact.lastname}
+          defaultValue={contact.lastname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
       </label>
@@ -39,7 +40,7 @@ export default function ContactForm() {
           type="tel"
           name="phone"
           placeholder="+54 11 1234-5678"
-          // defaultValue={contact.twitter}
+          defaultValue={contact.phone}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
       </label>

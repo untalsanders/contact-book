@@ -1,9 +1,8 @@
 import { createBrowserRouter } from 'react-router'
-import { destroyContactAction, editContactAction } from './actions'
+import { destroyContactAction, editContactAction, saveContactAction } from './actions'
 import ContactCard from './components/contacts/ContactCard'
 import ContactForm from './components/contacts/ContactForm'
 import Root from './components/layout/Root'
-import EditContact from './edit'
 import { contactListLoader, contactLoader } from './loaders'
 import AboutPage from './pages/about'
 import HomePage from './pages/home'
@@ -21,6 +20,7 @@ export const router = createBrowserRouter([
           {
             path: 'new',
             Component: ContactForm,
+            action: saveContactAction,
           },
           {
             path: ':id',
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
               { index: true, Component: ContactCard, loader: contactLoader },
               {
                 path: 'edit',
-                Component: EditContact,
+                Component: ContactForm,
                 loader: contactLoader,
                 action: editContactAction,
               },

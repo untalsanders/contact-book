@@ -1,4 +1,3 @@
-import { findById } from '../lib/db'
 import { Contact } from '../types/contact.types'
 import CreateContactUseCase from '../usecases/CreateContactUseCase'
 import RemoveContactUseCase from '../usecases/RemoveContactUseCase'
@@ -68,28 +67,33 @@ export default class ContactService
   }
 
   async updateContact(id: string, contact: Contact): Promise<Contact> {
-    const existing = await findById(id)
-    if (!existing) {
+    const contactToUpdate = await this.getContact(id)
+    if (!contactToUpdate) {
       throw new Error('Contact not found')
     }
+    const contactUpdated: Contact = { ...contactToUpdate, ...contact, id }
 
-    const updated: Contact = { ...existing, ...contact, id }
+    const url = `${this.apiUrl}/contacts/${id}`
+    const request = new Request(url, {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(contactUpdated),
+    })
 
-    // If the DB module exposes an update/save function, try to persist the change.
-    // Use dynamic import to avoid touching top-level imports here.
     try {
-      const db: any = await import('../lib/db')
-      if (typeof db.update === 'function') {
-        return await db.update(id, updated)
-      }
-      if (typeof db.save === 'function') {
-        return await db.save(updated)
+      const response = await fetch(request)
+
+      if (response.status !== 201) {
+        throw new Error('Failed to persist contact update')
       }
     } catch (error) {
-      console.warn('Failed to persist contact update, falling back to in-memory update:', error)
+      console.error(error)
     }
 
-    return updated
+    return contactUpdated
   }
 
   async removeContact(id: string): Promise<void> {
