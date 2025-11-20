@@ -1,6 +1,6 @@
+import Favorite from '@/components/ui/Favorite'
+import { Contact } from '@/types/contact.types'
 import { Form, useLoaderData } from 'react-router'
-import { Contact } from '../../types/contact.types'
-import Favorite from '../ui/Favorite'
 
 export default function ContactCard() {
   const { contact } = useLoaderData() as { contact: Contact }

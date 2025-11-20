@@ -1,5 +1,5 @@
+import { Contact } from '@/types/contact.types'
 import { Form, NavLink } from 'react-router'
-import { Contact } from '../../types/contact.types'
 import ContactPhoto from './ContactPhoto'
 
 export default function ContactRow({ contact }: { contact: Contact }) {

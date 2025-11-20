@@ -1,7 +1,7 @@
 'use strict'
 
+import { Contact } from '@/types/contact.types'
 import { useFetcher } from 'react-router'
-import { Contact } from '../../types/contact.types'
 
 export default function Favorite({ contact }: { contact: Contact }) {
   const fetcher = useFetcher()

@@ -1,6 +1,6 @@
 'use strict'
 
-import { Contact } from '../../types/contact.types'
+import { Contact } from '@/types/contact.types'
 import ContactRow from './ContactRow'
 
 export default function ContactList({ contacts }: { contacts: Contact[] }) {

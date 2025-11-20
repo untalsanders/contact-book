@@ -1,12 +1,12 @@
+import ContactCard from '@/components/contacts/ContactCard'
+import ContactForm from '@/components/contacts/ContactForm'
+import Root from '@/components/layout/Root'
+import { destroyContactAction, editContactAction, saveContactAction } from '@/lib/actions'
+import { contactListLoader, contactLoader } from '@/lib/loaders'
+import AboutPage from '@/pages/about'
+import HomePage from '@/pages/home'
+import TrashPage from '@/pages/trash'
 import { createBrowserRouter } from 'react-router'
-import { destroyContactAction, editContactAction, saveContactAction } from './lib/actions'
-import ContactCard from './components/contacts/ContactCard'
-import ContactForm from './components/contacts/ContactForm'
-import Root from './components/layout/Root'
-import { contactListLoader, contactLoader } from './lib/loaders'
-import AboutPage from './pages/about'
-import HomePage from './pages/home'
-import TrashPage from './pages/trash'
 
 export const router = createBrowserRouter([
   {

@@ -1,5 +1,5 @@
+import ContactService from '@/services/ContactService'
 import { LoaderFunctionArgs } from 'react-router'
-import ContactService from '../services/ContactService'
 
 const contactService = new ContactService()
 

@@ -1,4 +1,4 @@
-import { Contact } from '../../types/contact.types'
+import { Contact } from '@/types/contact.types'
 
 export default function ContactPhoto({ contact }: { contact: Contact }) {
   return (

@@ -1,8 +1,8 @@
 'use strict'
 
+import ContactList from '@/components/contacts/ContactList'
+import ContactListEmpty from '@/components/contacts/ContactListEmpty'
 import { useLoaderData } from 'react-router'
-import ContactList from '../components/contacts/ContactList'
-import ContactListEmpty from '../components/contacts/ContactListEmpty'
 
 export default function HomePage() {
   const { contacts } = useLoaderData()
