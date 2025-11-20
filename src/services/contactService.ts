@@ -42,19 +42,26 @@ export default class ContactService
   }
 
   async saveContact(contact: Contact): Promise<Contact> {
-    // Generate a unique ID for the new contact
-    const id = crypto.randomUUID()
-    const newContact: Contact = { ...contact, id, createdAt: Date.now() }
+    const url = `${this.apiUrl}/contacts`
+    const newContact: Contact = { ...contact, createdAt: Date.now() }
 
-    // If the DB module exposes a save function, try to persist the change.
-    // Use dynamic import to avoid touching top-level imports here.
+    const request = new Request(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newContact),
+    })
+
     try {
-      const db: any = await import('../lib/db')
-      if (typeof db.save === 'function') {
-        return await db.save(newContact)
+      const response = await fetch(request)
+
+      if (response.status !== 201) {
+        throw new Error('Failed to persist contact save')
       }
     } catch (error) {
-      console.warn('Failed to persist contact save, falling back to in-memory save:', error)
+      console.error(error)
     }
 
     return newContact

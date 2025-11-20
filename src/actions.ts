@@ -5,6 +5,13 @@ import ContactService from './services/contactService'
 
 const contactService = new ContactService()
 
+export const saveContactAction = async ({ request }: ActionFunctionArgs) => {
+  const formData = await request.formData()
+  const contact = Object.fromEntries(formData)
+  await contactService.saveContact(contact)
+  return redirect('/')
+}
+
 export const editContactAction = async ({ request, params }: ActionFunctionArgs) => {
   const formData = await request.formData()
   const updates = Object.fromEntries(formData)

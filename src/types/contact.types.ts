@@ -1,11 +1,11 @@
 export type Contact = {
-  id: string
+  id?: string
   firstname?: string
   lastname?: string
   phone?: string
   avatar?: string | undefined
   twitter?: string
   notes?: string
-  favorite: boolean
+  favorite?: boolean
   createdAt?: number
 }

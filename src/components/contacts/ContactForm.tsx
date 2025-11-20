@@ -10,9 +10,9 @@ export default function ContactForm() {
   }
 
   return (
-    <Form method="post" className="flex flex-col gap-4 p-4">
-      <p className="flex">
-        <span className="w-32">Name</span>
+    <Form action={window.location.pathname} method="post" className="flex flex-col gap-4 p-4">
+      <label htmlFor="firstname" className="flex gap-2">
+        <span className="w-32">Firstname</span>
         <input
           type="text"
           placeholder="First"
@@ -21,6 +21,9 @@ export default function ContactForm() {
           // defaultValue={contact.firstname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
+      </label>
+      <label htmlFor="lastname" className="flex gap-2">
+        <span className="w-32">Lastname</span>
         <input
           type="text"
           placeholder="Last"
@@ -29,37 +32,18 @@ export default function ContactForm() {
           // defaultValue={contact.lastname}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
-      </p>
-      <label htmlFor="twitter" className="flex">
-        <span className="w-32">Twitter</span>
+      </label>
+      <label htmlFor="phone" className="flex gap-2">
+        <span className="w-32">Phone</span>
         <input
-          type="text"
-          name="twitter"
-          placeholder="@jack"
+          type="tel"
+          name="phone"
+          placeholder="+54 11 1234-5678"
           // defaultValue={contact.twitter}
           className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
         />
       </label>
-      <label htmlFor="avatar" className="flex">
-        <span className="w-32">Avatar URL</span>
-        <input
-          type="text"
-          name="avatar"
-          // defaultValue={contact.avatar}
-          aria-label="Avatar URL"
-          placeholder="https://example.com/avatar.jpg"
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"
-        />
-      </label>
-      <label htmlFor="notes" className="flex">
-        <span className="w-32">Notas</span>
-        <textarea
-          name="notes"
-          // defaultValue={contact.notes}
-          rows={6}
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed"></textarea>
-      </label>
-      <p className="flex gap-2 ml-32">
+      <div className="flex gap-2 ml-32">
         <button
           type="submit"
           className="text-blue-500 font-medium border-none rounded-lg p-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed active:shadow-sm transform active:translate-y-0.5">
@@ -71,7 +55,7 @@ export default function ContactForm() {
           className="text-inherit font-medium border-none rounded-lg p-3 py-2 shadow-sm hover:shadow-md bg-white leading-relaxed active:shadow-sm transform active:translate-y-0.5">
           Cancel
         </button>
-      </p>
+      </div>
     </Form>
   )
 }
