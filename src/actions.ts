@@ -1,7 +1,7 @@
 'use strict'
 
 import { ActionFunctionArgs, redirect } from 'react-router'
-import ContactService from './services/contactService'
+import ContactService from './services/ContactService'
 
 const contactService = new ContactService()
 
